@@ -30,7 +30,7 @@
           Давайте <br />
           познакомимся!
         </h1>
-        <form action="#" class="form">
+        <form id="formElem" class="form">
           <div class="form-item">
             <label for="surname">
               <input
@@ -113,12 +113,27 @@
               <span class="error" aria-live="polite"></span>
             </label>
           </div>
-          <button class="btn">
+          <button class="btn" type="submit">
             Зарегистрироваться<br />
             и получить комплимент
           </button>
         </form>
       </div>
     </main>
+
+    <script>
+      formElem.onsubmit = async (e) => {
+        e.preventDefault();
+
+        let response = await fetch("/data.php", {
+          method: "POST",
+          body: new FormData(formElem),
+        });
+
+        let result = await response.json();
+
+        alert(result.message);
+      };
+    </script>
   </body>
 </html>
