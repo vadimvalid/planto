@@ -5,9 +5,320 @@
   --black-light: #3d3d3f;
   --black-dark: #231f20;
   --red: #ec1848;
+  --brown: #513529;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("../fonts/Gotham-Book.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham Bold";
+  src: url("../fonts/Gotham-Bold.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .body {
+  position: relative;
   height: 100dvh;
   background-color: var(--yellow);
+  background-image: url("../images/footet.webp");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 100% auto;
+  font-family: "Gotham", sans-serif;
+  color: var(--black-light);
+}
+
+.body::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 70px;
+  width: clamp(150px, 20vw, 310px);
+  height: clamp(120px, 20vw, 280px);
+  background-image: url("../images/petmol.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.body::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 70px;
+  width: clamp(200px, 20vw, 430px);
+  height: clamp(220px, 20vw, 460px);
+  background-image: url("../images/planto.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.body.thanks {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: space-evenly;
+  background-image: none;
+}
+
+.body.thanks::after,
+.body.thanks::before {
+  display: none;
+}
+
+h1 {
+  color: #3d3d3f;
+  text-align: center;
+  font-size: clamp(68px, 5vw, 82px);
+  line-height: 90%;
+  letter-spacing: -2.46px;
+  text-transform: uppercase;
+}
+
+.red {
+  color: var(--red);
+}
+
+.brown {
+  color: var(--brown);
+}
+
+.white {
+  color: var(--yellow-light);
+}
+
+.header {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: calc(100% - 80px);
+  z-index: 5;
+}
+
+.header .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .wrapper > img {
+  width: clamp(100px, 20vw, 220px);
+  height: auto;
+}
+
+.body.thanks .header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 36%;
+  margin: 0 auto;
+}
+
+.body.thanks .header .wrapper {
+  gap: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .body.thanks .header {
+    width: 90%;
+  }
+}
+
+input {
+  border: none;
+  background: var(--yellow-light);
+  padding: 28px 28px 28px 60px;
+  border-radius: 50px;
+  color: var(--black-light);
+  font-family: "Gotham Bold", sans-serif;
+  font-size: 20px;
+  line-height: 90%;
+  text-transform: capitalize;
+}
+
+input::placeholder {
+  color: var(--black-light);
+  font-family: "Gotham Bold", sans-serif;
+  font-size: 20px;
+  line-height: 90%;
+}
+
+input:invalid {
+  border: 1px solid var(--red);
+}
+
+.form .error {
+  display: block;
+  margin: 10px 0;
+  padding-left: 30px;
+  color: var(--red);
+  font-size: 20px;
+  line-height: 90%;
+}
+
+.main {
+  position: relative;
+  height: 100%;
+  z-index: 6;
+}
+
+.main .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(35px, 5vw, 50px);
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.main.success .content {
+  justify-content: flex-start;
+  gap: clamp(20px, 5vw, 35px);
+  width: 100%;
+  padding-top: clamp(50px, 5vw, 70px);
+  font-family: "Gotham Bold", sans-serif;
+  font-size: clamp(30px, 5vw, 48px);
+  line-height: 90%;
+  letter-spacing: -0.96px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.main.success .content h1 {
+  font-size: clamp(48px, 5vw, 68px);
+  line-height: 1;
+  letter-spacing: -1.36px;
+}
+
+.main.success .content > p {
+  width: 50%;
+  margin-bottom: 5px;
+}
+
+.main.main.success .content > span {
+  font-size: clamp(16px, 5vw, 22px);
+  letter-spacing: -0.44px;
+}
+
+.body.thanks .main {
+  height: auto;
+}
+
+.body.thanks .main .content {
+  justify-content: flex-start;
+  gap: 0;
+  width: 45%;
+}
+
+.body.thanks .main .content h1 {
+  margin-bottom: clamp(40px, 5vw, 78px);
+  font-size: clamp(40px, 5vw, 52px);
+  line-height: 1;
+}
+
+.body.thanks .main .content .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 5vw, 32px);
+  font-family: "Gotham Bold", sans-serif;
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 90%;
+  letter-spacing: -0.84px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .main .content {
+    width: 90%;
+  }
+
+  .main.success .content {
+    padding-top: 100px;
+  }
+
+  .main.success .content > p {
+    width: 90%;
+  }
+
+  .body.thanks .main .content {
+    width: 90%;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+}
+
+.form-item {
+  display: flex;
+  gap: 10px;
+}
+
+.form-item label {
+  flex: 1;
+}
+
+.form-item input {
+  width: 100%;
+}
+
+.btn {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 540px;
+  height: 74px;
+  padding: 0 35px;
+  color: var(--yellow-light);
+  font-family: "Gotham Bold", sans-serif;
+  font-size: 20px;
+  line-height: 90%;
+  text-align: center;
+  background-image: url("../images/button-black.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.btn--brown {
+  background-image: url("../images/button-brown.svg");
+  color: var(--yellow-light);
+}
+
+.btn--red {
+  background-image: url("../images/button-red.svg");
+  color: var(--yellow-light);
+}
+
+.btn--white {
+  background-image: url("../images/button-yellow.svg");
+  color: var(--brown);
+}
+
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 1024px) {
+  .btn {
+    width: auto;
+  }
 }
