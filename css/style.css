@@ -258,7 +258,7 @@ input::placeholder {
 }
 
 .body.buy .main .content {
-  padding-top: clamp(100px, 10vw, 190px);
+  padding-top: clamp(150px, 10vw, 190px);
 }
 
 .body.buy .main .content h1 {
@@ -281,6 +281,12 @@ input::placeholder {
 
   .body.thanks .main .content {
     width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .body.buy .main .content {
+    padding-top: 100px;
   }
 }
 
