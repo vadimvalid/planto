@@ -26,7 +26,6 @@
 
 .body {
   position: relative;
-  height: 100dvh;
   background-color: var(--yellow);
   background-image: url("../images/footet.webp");
   background-repeat: no-repeat;
@@ -58,6 +57,16 @@
   background-image: url("../images/planto.webp");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 768px) {
+  .body::before {
+    left: 0;
+  }
+
+  .body::after {
+    right: 0;
+  }
 }
 
 .body.thanks {
@@ -172,9 +181,9 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: clamp(35px, 5vw, 50px);
   height: 100%;
+  padding: clamp(30px, 5vw, 75px) 0 clamp(100px, 5vw, 225px);
   margin: 0 auto;
   aspect-ratio: 4/3;
 }
@@ -182,6 +191,12 @@ input::placeholder {
 @media screen and (max-width: 768px) {
   .main .content {
     aspect-ratio: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main .content {
+    padding: 70px 0 50px;
   }
 }
 
@@ -242,8 +257,13 @@ input::placeholder {
   text-align: center;
 }
 
+.body.buy .main .content {
+  padding-top: clamp(100px, 10vw, 190px);
+}
+
 .body.buy .main .content h1 {
-  font-size: clamp(20px, 4vw, 40px);
+  max-width: 1125px;
+  font-size: clamp(20px, 5vw, 48px);
 }
 
 @media screen and (max-width: 1024px) {
@@ -354,10 +374,18 @@ input::placeholder {
   gap: 20px;
 }
 
-.contacts .item > img {
+.contacts .item .img {
   flex: 0 1 40%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   object-fit: contain;
   height: auto;
+  font-family: "Gotham Bold", sans-serif;
+  font-size: clamp(20px, 5vw, 34px);
+  font-weight: 700;
+  line-height: 110%;
+  text-transform: uppercase;
 }
 
 .contacts .item p,
@@ -371,10 +399,26 @@ input::placeholder {
 }
 
 .contacts .item__info {
+  flex: 0 1 60%;
   display: flex;
   flex-direction: column;
 }
 
 .contacts .item__info p {
   font-family: "Gotham Bold", sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .contacts .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contacts .item .img {
+    flex: 1;
+  }
+
+  .contacts .item__info {
+    flex: 1;
+  }
 }
